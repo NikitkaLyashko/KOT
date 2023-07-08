@@ -1,3 +1,4 @@
-import view,controller,model
+import model,controller,view
+
 while True:
-    1
+    controller.controller()
