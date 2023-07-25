@@ -9,24 +9,38 @@ pict_cat=pygame.image.load("pics/cat1.png")
 umbrella=pygame.image.load("pics/umbrella.png")
 bucket=pygame.image.load("pics/bucket.png")
 
-
+cat_2 = pygame.transform.scale(pict_cat, [model.cot.width, model.cot.height])
+umbr_2 = pygame.transform.scale(umbrella, [model.zont.width, model.zont.height])
+bucket_2 = pygame.transform.scale(bucket, model.vedro.size)
 
 def mirror():
     wind.fill([255, 125, 225])
-    cat_2 = pygame.transform.scale(pict_cat, [model.cot.width, model.cot.height])
+
     if model.razvorot_kota == "mirror":
+
+
+
         mirrior_cat_2=pygame.transform.flip(cat_2,True, False)
         wind.blit(mirrior_cat_2, [model.cot.left, model.cot.top])
+
+        umbr_3=pygame.transform.flip(umbr_2,True,False)
+        wind.blit(umbr_3,[model.zont.left, model.zont.top])
+
+        bucket_3=pygame.transform.flip(bucket_2,True,False)
+        wind.blit(bucket_3,model.vedro.topleft)
     else:
-        cat_2 = pygame.transform.scale(pict_cat, [model.cot.width, model.cot.height])
+
         wind.blit(cat_2, [model.cot.left, model.cot.top])
+        wind.blit(umbr_2,[model.zont.left, model.zont.top])
 
-    umbr_2=pygame.transform.scale(umbrella, [model.zont.width, model.zont.height])
-    wind.blit(umbr_2, [model.zont.left, model.zont.top])
+        wind.blit(bucket_2, model.vedro.topleft)
 
 
-    bucket_2=pygame.transform.scale(bucket, model.vedro.size)
-    wind.blit(bucket_2, model.vedro.topleft)
+
+
+
+
+
 
 
 
