@@ -8,14 +8,16 @@ wind=pygame.display.set_mode([1000,1000])
 pict_cat=pygame.image.load("pics/cat1.png")
 umbrella=pygame.image.load("pics/umbrella.png")
 bucket=pygame.image.load("pics/bucket.png")
+cloud=pygame.image.load("pics/cloud.png")
 
 cat_2 = pygame.transform.scale(pict_cat, [model.cot.width, model.cot.height])
 umbr_2 = pygame.transform.scale(umbrella, [model.zont.width, model.zont.height])
 bucket_2 = pygame.transform.scale(bucket, model.vedro.size)
+cloud2=pygame.transform.scale(cloud,model.cloud_small.size)
 
 def mirror():
     wind.fill([255, 125, 225])
-
+    wind.blit(cloud2, [model.cloud_small.left,model.cloud_small.top])
     if model.razvorot_kota == "mirror":
 
 
@@ -32,8 +34,8 @@ def mirror():
 
         wind.blit(cat_2, [model.cot.left, model.cot.top])
         wind.blit(umbr_2,[model.zont.left, model.zont.top])
-
         wind.blit(bucket_2, model.vedro.topleft)
+
 
 
 
@@ -52,6 +54,7 @@ def rects():
         pygame.draw.rect(wind, [200, 100, 0], model.cot, 3)
         pygame.draw.rect(wind, [0, 200, 0], model.zont, 3)
         pygame.draw.rect(wind, [0, 0, 200], model.vedro, 3)
+        pygame.draw.rect(wind,[0,0,0],model.cloud_small,3)
 
 
 
