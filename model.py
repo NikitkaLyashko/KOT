@@ -8,6 +8,16 @@ zont=pygame.Rect(cot.right - 80, 1, 100, 100)
 vedro=pygame.Rect(cot.left -20, 1, 70, 70)
 cloud_small=pygame.Rect(200,100,100,100)
 
+rect_kaplya = pygame.Rect(400, 180, 25, 25)
+rect_kaplya.centerx=cloud_small.centerx
+
+def water_drop_under_cloud_def():
+
+    rect_kaplya.centerx=cloud_small.centerx
+    rect_kaplya.centery=cloud_small.centery
+
+
+
 zont.bottom=cot.top+30
 vedro.bottom=cot.top+45
 
@@ -21,16 +31,16 @@ ride_cloud_right=False
 def ride_cloud():
     global ride_cloud_right
 
-
+    rect_kaplya.bottom+=5
 
 
 
     if ride_cloud_right==True:
-        cloud_small.right+=5
+        cloud_small.right+=0
         if cloud_small.right>=1000:
             ride_cloud_right=False
     else:
-        cloud_small.left -= 5
+        cloud_small.left -= 0
         if cloud_small.left<=0:
             ride_cloud_right=True
 
