@@ -25,7 +25,8 @@ def controller():
         if cobitie.type==free_type_2:
             model.water_drop_under_cloud_def()
 
-
+        if cobitie.type ==pygame.KEYDOWN and cobitie.key==pygame.K_SPACE:
+            model.blue_rect.height=random.randint(30,900)
 
         if cobitie.type == pygame.QUIT:
             exit()

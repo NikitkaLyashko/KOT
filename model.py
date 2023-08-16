@@ -3,10 +3,14 @@ import random
 import pygame
 pygame.init()
 
-cot=pygame.Rect(450, 800, 150, 150)
+cot=pygame.Rect(450, 850, 150, 150)
 zont=pygame.Rect(cot.right - 80, 1, 100, 100)
 vedro=pygame.Rect(cot.left -20, 1, 70, 70)
 cloud_small=pygame.Rect(200,100,100,100)
+wave=pygame.Rect(0,870,1000,30)
+blue_rect=pygame.Rect(0,900,1000,100)
+
+
 
 rect_kaplya = pygame.Rect(400, 180, 25, 25)
 rect_kaplya.centerx=cloud_small.centerx
