@@ -11,6 +11,7 @@ bucket=pygame.image.load("pics/bucket.png")
 cloud=pygame.image.load("pics/cloud.png")
 water_drop=pygame.image.load("pics/water_drop.png")
 water_wave=pygame.image.load("pics/water.png")
+plot_pict=pygame.image.load("pics/raft.png")
 
 cat_2 = pygame.transform.scale(pict_cat, [model.cot.width, model.cot.height])
 umbr_2 = pygame.transform.scale(umbrella, [model.zont.width, model.zont.height])
@@ -18,16 +19,16 @@ bucket_2 = pygame.transform.scale(bucket, model.vedro.size)
 cloud2=pygame.transform.scale(cloud,model.cloud_small.size)
 water_drop_2=pygame.transform.scale(water_drop,[model.rect_kaplya.width,model.rect_kaplya.height])
 wave_water_2=pygame.transform.scale(water_wave,model.wave.size)
+plot_pict_2=pygame.transform.scale(plot_pict,model.plot_rect.size)
 
 def mirror():
     wind.fill([255, 125, 225])
-    pygame.draw.rect(wind, [59, 163, 198], model.blue_rect)
+    # pygame.draw.rect(wind, [90,124,56],model.c)
     wind.blit(cloud2, [model.cloud_small.left,model.cloud_small.top])
     wind.blit(water_drop_2,[model.rect_kaplya.left,model.rect_kaplya.top])
-    wind.blit(wave_water_2,model.wave.topleft)
+
+
     if model.razvorot_kota == "mirror":
-
-
 
         mirrior_cat_2=pygame.transform.flip(cat_2,True, False)
         wind.blit(mirrior_cat_2, [model.cot.left, model.cot.top])
@@ -43,8 +44,9 @@ def mirror():
         wind.blit(umbr_2,[model.zont.left, model.zont.top])
         wind.blit(bucket_2, model.vedro.topleft)
 
-
-
+    pygame.draw.rect(wind, [59, 163, 198], model.blue_rect)
+    wind.blit(wave_water_2, model.wave.topleft)
+    wind.blit(plot_pict_2, model.plot_rect.topleft)
 
 
 

@@ -9,9 +9,11 @@ vedro=pygame.Rect(cot.left -20, 1, 70, 70)
 cloud_small=pygame.Rect(200,100,100,100)
 wave=pygame.Rect(0,870,1000,30)
 blue_rect=pygame.Rect(0,900,1000,100)
+plot_rect=pygame.Rect(300,1,150,20)
 
 
 
+plot_rect.bottom=wave.top+10
 rect_kaplya = pygame.Rect(400, 180, 25, 25)
 rect_kaplya.centerx=cloud_small.centerx
 
@@ -19,6 +21,8 @@ def water_drop_under_cloud_def():
 
     rect_kaplya.centerx=cloud_small.centerx
     rect_kaplya.centery=cloud_small.centery
+
+
 
 
 
