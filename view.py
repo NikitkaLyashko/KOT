@@ -25,8 +25,11 @@ def mirror():
     wind.fill([255, 125, 225])
     # pygame.draw.rect(wind, [90,124,56],model.c)
     wind.blit(cloud2, [model.cloud_small.left,model.cloud_small.top])
-    wind.blit(water_drop_2,[model.rect_kaplya.left,model.rect_kaplya.top])
+    if model.show_water_drop==True:
+        wind.blit(water_drop_2,[model.rect_kaplya.left,model.rect_kaplya.top])
 
+    wind.blit(wave_water_2, model.wave.topleft)
+    wind.blit(plot_pict_2, model.plot_rect.topleft)
 
     if model.razvorot_kota == "mirror":
 
@@ -45,8 +48,8 @@ def mirror():
         wind.blit(bucket_2, model.vedro.topleft)
 
     pygame.draw.rect(wind, [59, 163, 198], model.blue_rect)
-    wind.blit(wave_water_2, model.wave.topleft)
-    wind.blit(plot_pict_2, model.plot_rect.topleft)
+    # wind.blit(wave_water_2, model.wave.topleft)
+
 
 
 

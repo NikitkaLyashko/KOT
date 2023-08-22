@@ -30,10 +30,10 @@ def controller():
             # x=1000-model.blue_rect.top
             # model.blue_rect.height=x
 
-
-            model.blue_rect.height=random.randint(300,900)
-            model.blue_rect.bottom = 1000
-            model.wave.bottom=model.blue_rect.top
+            model.height_wave()
+            # model.blue_rect.height=random.randint(300,900)
+            # model.blue_rect.bottom = 1000
+            # model.wave.bottom=model.blue_rect.top
 
 
         if cobitie.type == pygame.QUIT:
