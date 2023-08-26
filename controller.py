@@ -3,7 +3,7 @@ import random
 import model,pygame
 import view
 
-# pygame.key.set_repeat(25)
+pygame.key.set_repeat(25)
 
 free_type=pygame.event.custom_type()
 pygame.time.set_timer(free_type,3000,0)

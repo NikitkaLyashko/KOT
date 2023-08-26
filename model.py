@@ -20,15 +20,15 @@ vedro.left=cot.left-20
 zont.left = cot.right - 75
 zont.bottom=cot.top+30
 vedro.bottom=cot.top+45
-
-
 rect_kaplya = pygame.Rect(400, 180, 25, 25)
 rect_kaplya.centerx=cloud_small.centerx
 
 def water_drop_under_cloud_def():
+    global  show_water_drop
 
     rect_kaplya.centerx=cloud_small.centerx
     rect_kaplya.centery=cloud_small.centery
+    show_water_drop = True
 
 def height_wave():
     blue_rect.height = random.randint(300, 900)
@@ -57,11 +57,19 @@ def ride_cloud():
 
     rect_kaplya.bottom+=5
 
-    if rect_kaplya.bottom==wave.top:
-        show_water_drop=False
+    if rect_kaplya.bottom>=wave.top and show_water_drop==True:
 
-    if rect_kaplya.top>=wave.bottom:
-        show_water_drop=True
+        show_water_drop=False
+        # rect_kaplya.centerx = cloud_small.centerx
+        # rect_kaplya.centery = cloud_small.centery
+        blue_rect.height+=10
+        blue_rect.bottom = 1000
+        wave.bottom = blue_rect.top
+        plot_rect.bottom = wave.top + 10
+        cot.bottom = plot_rect.top + 10
+        zont.bottom = cot.top + 30
+        vedro.bottom = cot.top + 45
+        print(blue_rect.height)
 
 
 
