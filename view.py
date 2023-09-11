@@ -69,6 +69,8 @@ def rects():
         pygame.draw.rect(wind,[0,0,0],model.cloud_small,3)
         pygame.draw.rect(wind,[100,200,150],model.rect_kaplya,3)
         pygame.draw.rect(wind,[0,0,0],model.wave,3)
+        pygame.draw.rect(wind,[154,0,57],model.plot_rect,3)
+
 
 
 
