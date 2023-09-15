@@ -2,7 +2,7 @@ import pygame,model
 import pygame.rect
 pygame.init()
 wind=pygame.display.set_mode([1000,1000])
-
+text=pygame.font.SysFont("Arial",50)
 
 
 pict_cat=pygame.image.load("pics/cat1.png")
@@ -22,6 +22,7 @@ wave_water_2=pygame.transform.scale(water_wave,model.wave.size)
 plot_pict_2=pygame.transform.scale(plot_pict,model.plot_rect.size)
 
 def mirror():
+    text_kartinka = text.render("Капли:" + str(model.kapli), True, [0, 150, 0])
     wind.fill([255, 125, 225])
     # pygame.draw.rect(wind, [90,124,56],model.c)
     wind.blit(cloud2, [model.cloud_small.left,model.cloud_small.top])
@@ -30,6 +31,8 @@ def mirror():
 
     wind.blit(wave_water_2, model.wave.topleft)
     wind.blit(plot_pict_2, model.plot_rect.topleft)
+
+    wind.blit(text_kartinka,[0,0])
 
     if model.razvorot_kota == "mirror":
 
@@ -70,6 +73,7 @@ def rects():
         pygame.draw.rect(wind,[100,200,150],model.rect_kaplya,3)
         pygame.draw.rect(wind,[0,0,0],model.wave,3)
         pygame.draw.rect(wind,[154,0,57],model.plot_rect,3)
+
 
 
 

@@ -66,9 +66,17 @@ def height_wave():
     zont.bottom = cot.top + 30
     vedro.bottom = cot.top + 45
 def ride_cloud():
-    global ride_cloud_right,show_water_drop
+    global ride_cloud_right,show_water_drop,kapli
 
     rect_kaplya.bottom+=5
+
+    if rect_kaplya.colliderect(zont) and show_water_drop==True:
+        show_water_drop=False
+
+
+    if rect_kaplya.colliderect(vedro) and show_water_drop==True:
+        show_water_drop = False
+        kapli+=1
 
     if rect_kaplya.bottom>=wave.top and show_water_drop==True:
 
@@ -103,9 +111,8 @@ cloud_small=pygame.Rect(200,100,100,100)
 wave=pygame.Rect(0,870,1000,30)
 blue_rect=pygame.Rect(0,900,1000,100)
 plot_rect=pygame.Rect(300,1,250,30)
-
-
-
+text=pygame.font.SysFont("Arial",20)
+kapli=0
 mirror_pit_left()
 height_wave()
 rect_kaplya = pygame.Rect(400, 180, 25, 25)
