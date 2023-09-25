@@ -1,3 +1,5 @@
+import random
+
 import pygame,model
 import pygame.rect
 pygame.init()
@@ -21,8 +23,41 @@ water_drop_2=pygame.transform.scale(water_drop,[model.rect_kaplya.width,model.re
 wave_water_2=pygame.transform.scale(water_wave,model.wave.size)
 plot_pict_2=pygame.transform.scale(plot_pict,model.plot_rect.size)
 
+
+
+def textX(chislo):
+
+
+    if chislo%10==0 or chislo%10>4 and chislo%100<20 :
+        text_kartinka = "Капель:" + str(chislo)
+        return text_kartinka
+
+    if chislo%10==1 and chislo%100!=11:
+        text_kartinka = text.render("Капля:" + str(chislo), True, [0, 150, 0])
+        return text_kartinka
+
+    if chislo%10>1 and chislo%10 <5:
+        text_kartinka = text.render("Капли:" + str(chislo), True, [0, 150, 0])
+        return text_kartinka
+
+
+
+for i in range(1,1000):
+
+    print(textX(i))
 def mirror():
-    text_kartinka = text.render("Капли:" + str(model.kapli), True, [0, 150, 0])
+
+    if model.kapli%10==0 or model.kapli%10>4 and model.kapli%100<20 :
+        text_kartinka = text.render("Капель:" + str(model.kapli), True, [0, 150, 0])
+
+    if model.kapli%10==1 and model.kapli%100!=11:
+        text_kartinka = text.render("Капля:" + str(model.kapli), True, [0, 150, 0])
+
+    if model.kapli%10>1 and model.kapli%10 <5:
+        text_kartinka = text.render("Капли:" + str(model.kapli), True, [0, 150, 0])
+
+
+
     wind.fill([255, 125, 225])
     # pygame.draw.rect(wind, [90,124,56],model.c)
     wind.blit(cloud2, [model.cloud_small.left,model.cloud_small.top])
@@ -33,7 +68,6 @@ def mirror():
     wind.blit(plot_pict_2, model.plot_rect.topleft)
 
     wind.blit(text_kartinka,[0,0])
-
     if model.razvorot_kota == "mirror":
 
         mirrior_cat_2=pygame.transform.flip(cat_2,True, False)

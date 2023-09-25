@@ -3,7 +3,7 @@ import random
 import model,pygame
 import view
 
-pygame.key.set_repeat(25)
+# pygame.key.set_repeat(25)
 
 free_type=pygame.event.custom_type()
 pygame.time.set_timer(free_type,3000,0)
@@ -26,14 +26,8 @@ def controller():
             model.water_drop_under_cloud_def()
 
         if cobitie.type ==pygame.KEYDOWN and cobitie.key==pygame.K_SPACE:
-            # model.blue_rect.top=random.randint(300,900)
-            # x=1000-model.blue_rect.top
-            # model.blue_rect.height=x
+            model.kapli+=1
 
-            model.height_wave()
-            # model.blue_rect.height=random.randint(300,900)
-            # model.blue_rect.bottom = 1000
-            # model.wave.bottom=model.blue_rect.top
 
 
         if cobitie.type == pygame.QUIT:

@@ -5,6 +5,7 @@ pygame.init()
 
 
 
+
 def water_drop_under_cloud_def():
     global  show_water_drop
 
@@ -113,6 +114,7 @@ blue_rect=pygame.Rect(0,900,1000,100)
 plot_rect=pygame.Rect(300,1,250,30)
 text=pygame.font.SysFont("Arial",20)
 kapli=0
+
 mirror_pit_left()
 height_wave()
 rect_kaplya = pygame.Rect(400, 180, 25, 25)
