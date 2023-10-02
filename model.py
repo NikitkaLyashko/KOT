@@ -7,10 +7,21 @@ pygame.init()
 
 
 def water_drop_under_cloud_def():
-    global  show_water_drop
+    global  show_water_drop,octaloc_kaplya
 
     rect_kaplya.centerx=cloud_small.centerx
     rect_kaplya.centery=cloud_small.centery
+
+    octaloc_kaplya -= 1
+
+    if octaloc_kaplya==0:
+        octaloc_kaplya=5
+
+
+
+
+
+
     show_water_drop = True
 
 
@@ -71,6 +82,7 @@ def ride_cloud():
 
     rect_kaplya.bottom+=5
 
+
     if rect_kaplya.colliderect(zont) and show_water_drop==True:
         show_water_drop=False
 
@@ -91,7 +103,7 @@ def ride_cloud():
         cot.bottom = plot_rect.top + 10
         zont.bottom = cot.top + 30
         vedro.bottom = cot.top + 45
-        print(blue_rect.height)
+        # print(blue_rect.height)
 
 
 
@@ -114,6 +126,8 @@ blue_rect=pygame.Rect(0,900,1000,100)
 plot_rect=pygame.Rect(300,1,250,30)
 text=pygame.font.SysFont("Arial",20)
 kapli=0
+
+octaloc_kaplya=5
 
 mirror_pit_left()
 height_wave()

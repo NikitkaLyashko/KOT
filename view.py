@@ -15,6 +15,7 @@ water_drop=pygame.image.load("pics/water_drop.png")
 water_wave=pygame.image.load("pics/water.png")
 plot_pict=pygame.image.load("pics/raft.png")
 
+
 cat_2 = pygame.transform.scale(pict_cat, [model.cot.width, model.cot.height])
 umbr_2 = pygame.transform.scale(umbrella, [model.zont.width, model.zont.height])
 bucket_2 = pygame.transform.scale(bucket, model.vedro.size)
@@ -28,35 +29,30 @@ plot_pict_2=pygame.transform.scale(plot_pict,model.plot_rect.size)
 def textX(chislo):
 
 
-    if chislo%10==0 or chislo%10>4 and chislo%100<20 :
+    if chislo%10==0 or ( chislo%10>=5 and chislo%100<=19 ) or (chislo%100>=11 and chislo%100<=14) or (chislo%10>=5 and chislo%10<=9):
         text_kartinka = "Капель:" + str(chislo)
         return text_kartinka
 
     if chislo%10==1 and chislo%100!=11:
-        text_kartinka = text.render("Капля:" + str(chislo), True, [0, 150, 0])
+        text_kartinka = "Капля:" + str(chislo)
         return text_kartinka
 
     if chislo%10>1 and chislo%10 <5:
-        text_kartinka = text.render("Капли:" + str(chislo), True, [0, 150, 0])
+        text_kartinka = "Капли:" + str(chislo)
         return text_kartinka
 
 
 
-for i in range(1,1000):
 
-    print(textX(i))
+
+
 def mirror():
-
-    if model.kapli%10==0 or model.kapli%10>4 and model.kapli%100<20 :
-        text_kartinka = text.render("Капель:" + str(model.kapli), True, [0, 150, 0])
-
-    if model.kapli%10==1 and model.kapli%100!=11:
-        text_kartinka = text.render("Капля:" + str(model.kapli), True, [0, 150, 0])
-
-    if model.kapli%10>1 and model.kapli%10 <5:
-        text_kartinka = text.render("Капли:" + str(model.kapli), True, [0, 150, 0])
+    kapl_do_yckor = str(model.octaloc_kaplya) + "Капель до ускорения"
+    text_kartinka=textX(model.kapli)
 
 
+    kartinka_2=text.render(text_kartinka,True,[0, 150, 0])
+    last_kaplya=text.render(kapl_do_yckor,True,[0,150,0])
 
     wind.fill([255, 125, 225])
     # pygame.draw.rect(wind, [90,124,56],model.c)
@@ -67,7 +63,8 @@ def mirror():
     wind.blit(wave_water_2, model.wave.topleft)
     wind.blit(plot_pict_2, model.plot_rect.topleft)
 
-    wind.blit(text_kartinka,[0,0])
+    wind.blit(kartinka_2,[0,0])
+    wind.blit(last_kaplya,[0,40])
     if model.razvorot_kota == "mirror":
 
         mirrior_cat_2=pygame.transform.flip(cat_2,True, False)

@@ -3,7 +3,7 @@ import random
 import model,pygame
 import view
 
-# pygame.key.set_repeat(25)
+pygame.key.set_repeat(25)
 
 free_type=pygame.event.custom_type()
 pygame.time.set_timer(free_type,3000,0)
@@ -23,7 +23,9 @@ def controller():
 
             # model.ride_cloud_right=not model.ride_cloud_right
         if cobitie.type==free_type_2:
+
             model.water_drop_under_cloud_def()
+
 
         if cobitie.type ==pygame.KEYDOWN and cobitie.key==pygame.K_SPACE:
             model.kapli+=1
