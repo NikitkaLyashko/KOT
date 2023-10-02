@@ -30,15 +30,15 @@ def textX(chislo):
 
 
     if chislo%10==0 or ( chislo%10>=5 and chislo%100<=19 ) or (chislo%100>=11 and chislo%100<=14) or (chislo%10>=5 and chislo%10<=9):
-        text_kartinka = "Капель:" + str(chislo)
+        text_kartinka = "ель"
         return text_kartinka
 
     if chislo%10==1 and chislo%100!=11:
-        text_kartinka = "Капля:" + str(chislo)
+        text_kartinka = "ля"
         return text_kartinka
 
     if chislo%10>1 and chislo%10 <5:
-        text_kartinka = "Капли:" + str(chislo)
+        text_kartinka = "ли"
         return text_kartinka
 
 
@@ -47,12 +47,14 @@ def textX(chislo):
 
 
 def mirror():
-    kapl_do_yckor = str(model.octaloc_kaplya) + "Капель до ускорения"
+    kapl_do_yckor = " до ускорения"
     text_kartinka=textX(model.kapli)
 
+    oconchanie_last_kaplya=textX(model.octaloc_kaplya)
 
-    kartinka_2=text.render(text_kartinka,True,[0, 150, 0])
-    last_kaplya=text.render(kapl_do_yckor,True,[0,150,0])
+
+    kartinka_2=text.render("кап"+text_kartinka+" "+str( model.kapli),True,[0, 150, 0])
+    last_kaplya=text.render(str(model.octaloc_kaplya)+" кап"+oconchanie_last_kaplya+kapl_do_yckor,True,[0,150,0])
 
     wind.fill([255, 125, 225])
     # pygame.draw.rect(wind, [90,124,56],model.c)
