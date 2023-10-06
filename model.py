@@ -7,7 +7,7 @@ pygame.init()
 
 
 def water_drop_under_cloud_def():
-    global  show_water_drop,octaloc_kaplya
+    global  show_water_drop,octaloc_kaplya,speed_cloud,speed_kaplya,level
 
     rect_kaplya.centerx=cloud_small.centerx
     rect_kaplya.centery=cloud_small.centery
@@ -16,6 +16,13 @@ def water_drop_under_cloud_def():
 
     if octaloc_kaplya==0:
         octaloc_kaplya=5
+        speed_cloud+=5
+        speed_kaplya+=3
+        level+=1
+
+    if level>=2:
+
+        pygame.time.set_timer(1000,0)
 
 
 
@@ -28,9 +35,6 @@ def water_drop_under_cloud_def():
 
 
 show_rect=True
-
-free_type=pygame.event.custom_type()
-pygame.time.set_timer(free_type,3000,0)
 
 razvorot_kota="111"
 ride_cloud_right=True
@@ -80,7 +84,7 @@ def height_wave():
 def ride_cloud():
     global ride_cloud_right,show_water_drop,kapli
 
-    rect_kaplya.bottom+=5
+    rect_kaplya.bottom+=speed_kaplya
 
 
     if rect_kaplya.colliderect(zont) and show_water_drop==True:
@@ -109,11 +113,11 @@ def ride_cloud():
 
 
     if ride_cloud_right==True:
-        cloud_small.right+=5
+        cloud_small.right+=speed_cloud
         if cloud_small.right>=1000:
             ride_cloud_right=False
     else:
-        cloud_small.left -= 5
+        cloud_small.left -= speed_cloud
         if cloud_small.left<=0:
             ride_cloud_right=True
 
@@ -127,7 +131,10 @@ plot_rect=pygame.Rect(300,1,250,30)
 text=pygame.font.SysFont("Arial",20)
 kapli=0
 
+speed_kaplya=5
+speed_cloud=5
 octaloc_kaplya=5
+level=1
 
 mirror_pit_left()
 height_wave()

@@ -56,6 +56,8 @@ def mirror():
     kartinka_2=text.render("кап"+text_kartinka+" "+str( model.kapli),True,[0, 150, 0])
     last_kaplya=text.render(str(model.octaloc_kaplya)+" кап"+oconchanie_last_kaplya+kapl_do_yckor,True,[0,150,0])
 
+    level_text=text.render(str(model.level)+" уровень",True,[0,150,0])
+
     wind.fill([255, 125, 225])
     # pygame.draw.rect(wind, [90,124,56],model.c)
     wind.blit(cloud2, [model.cloud_small.left,model.cloud_small.top])
@@ -65,6 +67,7 @@ def mirror():
     wind.blit(wave_water_2, model.wave.topleft)
     wind.blit(plot_pict_2, model.plot_rect.topleft)
 
+    wind.blit(level_text,[0,80])
     wind.blit(kartinka_2,[0,0])
     wind.blit(last_kaplya,[0,40])
     if model.razvorot_kota == "mirror":

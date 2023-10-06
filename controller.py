@@ -11,6 +11,9 @@ pygame.time.set_timer(free_type,3000,0)
 free_type_2=pygame.event.custom_type()
 pygame.time.set_timer(free_type_2,3000,0)
 
+if model.level >= 2:
+    pygame.time.set_timer(free_type_2, 0, 0)
+    pygame.time.set_timer(free_type,1000, 0)
 def controller():
     event=pygame.event.get()
 
