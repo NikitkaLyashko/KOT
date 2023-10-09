@@ -11,9 +11,7 @@ pygame.time.set_timer(free_type,3000,0)
 free_type_2=pygame.event.custom_type()
 pygame.time.set_timer(free_type_2,3000,0)
 
-if model.level >= 2:
-    pygame.time.set_timer(free_type_2, 0, 0)
-    pygame.time.set_timer(free_type,1000, 0)
+
 def controller():
     event=pygame.event.get()
 
@@ -24,7 +22,11 @@ def controller():
             random_bool=random.randint(int(False),int(True))
             model.ride_cloud_right=bool(random_bool)
 
-            # model.ride_cloud_right=not model.ride_cloud_right
+        if model.level >= 2:
+            print(2222)
+            pygame.time.set_timer(free_type_2, 0, 0)
+            pygame.time.set_timer(free_type_2, 1000, 0)
+
         if cobitie.type==free_type_2:
 
             model.water_drop_under_cloud_def()

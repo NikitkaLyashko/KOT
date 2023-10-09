@@ -8,7 +8,6 @@ pygame.init()
 
 def water_drop_under_cloud_def():
     global  show_water_drop,octaloc_kaplya,speed_cloud,speed_kaplya,level
-
     rect_kaplya.centerx=cloud_small.centerx
     rect_kaplya.centery=cloud_small.centery
 
@@ -21,6 +20,10 @@ def water_drop_under_cloud_def():
         level+=1
 
     if level>=2:
+
+        rect_kaplya.centerx = cloud_small.centerx
+        rect_kaplya.centery = cloud_small.centery
+
 
         pygame.time.set_timer(1000,0)
 
