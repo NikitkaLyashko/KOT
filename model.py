@@ -7,7 +7,7 @@ pygame.init()
 
 
 def water_drop_under_cloud_def():
-    global  show_water_drop,octaloc_kaplya,speed_cloud,speed_kaplya,level
+    global  show_water_drop,octaloc_kaplya,speed_cloud,speed_kaplya,level,chastots_kaplya
     rect_kaplya.centerx=cloud_small.centerx
     rect_kaplya.centery=cloud_small.centery
 
@@ -18,6 +18,10 @@ def water_drop_under_cloud_def():
         speed_cloud+=5
         speed_kaplya+=3
         level+=1
+
+        pygame.time.set_timer(free_type_2, 0, 0)
+        pygame.time.set_timer(free_type_2, chastots_kaplya-500, 0)
+        print(chastots_kaplya-500)
 
     if level>=2:
 
@@ -143,3 +147,9 @@ mirror_pit_left()
 height_wave()
 rect_kaplya = pygame.Rect(400, 180, 25, 25)
 rect_kaplya.centerx=cloud_small.centerx
+
+
+free_type_2=pygame.event.custom_type()
+pygame.time.set_timer(free_type_2,3000,0)
+
+chastots_kaplya=3500
