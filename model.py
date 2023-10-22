@@ -1,4 +1,5 @@
 import random
+import time
 
 import pygame
 pygame.init()
@@ -7,21 +8,30 @@ pygame.init()
 
 
 def water_drop_under_cloud_def():
-    global  show_water_drop,octaloc_kaplya,speed_cloud,speed_kaplya,level,chastots_kaplya
+    global  show_water_drop,octaloc_kaplya,speed_cloud,speed_kaplya,level,chastots_kaplya, free_type_2
+
     rect_kaplya.centerx=cloud_small.centerx
     rect_kaplya.centery=cloud_small.centery
 
     octaloc_kaplya -= 1
-
+    # time.sleep(1)
     if octaloc_kaplya==0:
         octaloc_kaplya=5
-        speed_cloud+=5
-        speed_kaplya+=3
         level+=1
+        if speed_cloud<=15:
+            speed_cloud += 5
+            print(speed_cloud)
+        if speed_kaplya<30:
+            speed_kaplya += 5
+
+        if chastots_kaplya > 500:
+            chastots_kaplya=chastots_kaplya-500
 
         pygame.time.set_timer(free_type_2, 0, 0)
-        pygame.time.set_timer(free_type_2, chastots_kaplya-500, 0)
-        print(chastots_kaplya-500)
+        pygame.time.set_timer(free_type_2, chastots_kaplya, 0)
+
+
+
 
     if level>=2:
 
@@ -29,17 +39,10 @@ def water_drop_under_cloud_def():
         rect_kaplya.centery = cloud_small.centery
 
 
-        pygame.time.set_timer(1000,0)
-
-
-
-
-
-
     show_water_drop = True
 
 
-
+show_sun=False
 
 show_rect=True
 
@@ -121,6 +124,7 @@ def ride_cloud():
 
     if ride_cloud_right==True:
         cloud_small.right+=speed_cloud
+
         if cloud_small.right>=1000:
             ride_cloud_right=False
     else:
@@ -133,14 +137,15 @@ zont=pygame.Rect(cot.right - 80, 1, 100, 100)
 vedro=pygame.Rect(cot.left -20, 1, 70, 70)
 cloud_small=pygame.Rect(200,100,100,100)
 wave=pygame.Rect(0,870,1000,30)
-blue_rect=pygame.Rect(0,900,1000,100)
+blue_rect=pygame.Rect(0,900,1000,10)
 plot_rect=pygame.Rect(300,1,250,30)
 text=pygame.font.SysFont("Arial",20)
+sun_rect=pygame.Rect(900,25,100,100)
 kapli=0
 
 speed_kaplya=5
 speed_cloud=5
-octaloc_kaplya=5
+octaloc_kaplya=2
 level=1
 
 mirror_pit_left()
@@ -152,4 +157,4 @@ rect_kaplya.centerx=cloud_small.centerx
 free_type_2=pygame.event.custom_type()
 pygame.time.set_timer(free_type_2,3000,0)
 
-chastots_kaplya=3500
+chastots_kaplya=3000

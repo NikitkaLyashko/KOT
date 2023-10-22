@@ -35,15 +35,15 @@ def controller():
 
 
 
-        if cobitie.type==pygame.KEYDOWN and cobitie.key==pygame.K_RIGHT:
+        if cobitie.type==pygame.KEYDOWN and cobitie.key==pygame.K_d:
             model.right()
 
 
-        if cobitie.type==pygame.KEYDOWN and cobitie.key==pygame.K_LEFT:
+        if cobitie.type==pygame.KEYDOWN and cobitie.key==pygame.K_a:
             model.left()
 
-
-
+        if cobitie.type==pygame.KEYDOWN and cobitie.key==pygame.K_RETURN:
+            model.show_sun=True
 
 
 
