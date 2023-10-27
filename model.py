@@ -4,7 +4,19 @@ import time
 import pygame
 pygame.init()
 
+def cloud_controller():
+    global show_sun,speed_cloud,speed_kaplya
 
+    if show_sun == False:
+        show_sun = True
+        pygame.time.set_timer(free_type_dlya_sun, 3000, 1)
+    # print(model.speed_cloud)
+        if speed_cloud>4:
+            speed_cloud -= 4
+        if speed_kaplya > 4:
+            speed_kaplya-=1
+
+        print(speed_cloud)
 
 
 def water_drop_under_cloud_def():
@@ -12,7 +24,7 @@ def water_drop_under_cloud_def():
 
     rect_kaplya.centerx=cloud_small.centerx
     rect_kaplya.centery=cloud_small.centery
-
+    print("kaplya")
     octaloc_kaplya -= 1
     # time.sleep(1)
     if octaloc_kaplya==0:
@@ -20,7 +32,7 @@ def water_drop_under_cloud_def():
         level+=1
         if speed_cloud<=15:
             speed_cloud += 5
-            print(speed_cloud)
+
         if speed_kaplya<30:
             speed_kaplya += 5
 
@@ -153,6 +165,7 @@ height_wave()
 rect_kaplya = pygame.Rect(400, 180, 25, 25)
 rect_kaplya.centerx=cloud_small.centerx
 
+free_type_dlya_sun=pygame.event.custom_type()
 
 free_type_2=pygame.event.custom_type()
 pygame.time.set_timer(free_type_2,3000,0)
