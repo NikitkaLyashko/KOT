@@ -3,30 +3,50 @@ import time
 
 import pygame
 pygame.init()
+def rovno():
+
+    blue_rect.bottom = 1000
+    wave.bottom = blue_rect.top
+    plot_rect.bottom = wave.top + 10
+    cot.bottom = plot_rect.top + 10
+    zont.bottom = cot.top + 30
+    vedro.bottom = cot.top + 45
 
 def cloud_controller():
-    global show_sun,speed_cloud,speed_kaplya
+    global show_sun,speed_cloud,speed_kaplya,period_megdy_kapel,blue_rect,kapli
 
-    if show_sun == False:
-        show_sun = True
-        pygame.time.set_timer(free_type_dlya_sun, 3000, 1)
+    if kapli < 2:
+        return
+    if show_sun:
+        return
+    show_sun = True
+
+    print(kapli)
+    kapli -= 2
+    pygame.time.set_timer(free_type_dlya_sun, 3000, 1)
     # print(model.speed_cloud)
-        if speed_cloud>4:
-            speed_cloud -= 4
-        if speed_kaplya > 4:
-            speed_kaplya-=1
+    if speed_cloud>4:
+        speed_cloud -= 4
+    if speed_kaplya > 4:
+        speed_kaplya-=1
+    if blue_rect.height>=10:
 
-        print(speed_cloud)
+        blue_rect.height-=30
+        rovno()
+    period_megdy_kapel= period_megdy_kapel + 500
 
 
+t=time.time()
 def water_drop_under_cloud_def():
-    global  show_water_drop,octaloc_kaplya,speed_cloud,speed_kaplya,level,chastots_kaplya, free_type_2
+    global  show_water_drop,octaloc_kaplya,speed_cloud,speed_kaplya,level,period_megdy_kapel, free_type_2,t
 
     rect_kaplya.centerx=cloud_small.centerx
     rect_kaplya.centery=cloud_small.centery
-    print("kaplya")
+
+    t=time.time()
     octaloc_kaplya -= 1
     # time.sleep(1)
+
     if octaloc_kaplya==0:
         octaloc_kaplya=5
         level+=1
@@ -36,11 +56,11 @@ def water_drop_under_cloud_def():
         if speed_kaplya<30:
             speed_kaplya += 5
 
-        if chastots_kaplya > 500:
-            chastots_kaplya=chastots_kaplya-500
+        if period_megdy_kapel > 500:
+            period_megdy_kapel= period_megdy_kapel - 500
 
         pygame.time.set_timer(free_type_2, 0, 0)
-        pygame.time.set_timer(free_type_2, chastots_kaplya, 0)
+        pygame.time.set_timer(free_type_2, period_megdy_kapel, 0)
 
 
 
@@ -118,17 +138,12 @@ def ride_cloud():
         kapli+=1
 
     if rect_kaplya.bottom>=wave.top and show_water_drop==True:
-
+        blue_rect.height += 10
+        rovno()
         show_water_drop=False
         # rect_kaplya.centerx = cloud_small.centerx
         # rect_kaplya.centery = cloud_small.centery
-        blue_rect.height+=10
-        blue_rect.bottom = 1000
-        wave.bottom = blue_rect.top
-        plot_rect.bottom = wave.top + 10
-        cot.bottom = plot_rect.top + 10
-        zont.bottom = cot.top + 30
-        vedro.bottom = cot.top + 45
+
         # print(blue_rect.height)
 
 
@@ -149,11 +164,11 @@ zont=pygame.Rect(cot.right - 80, 1, 100, 100)
 vedro=pygame.Rect(cot.left -20, 1, 70, 70)
 cloud_small=pygame.Rect(200,100,100,100)
 wave=pygame.Rect(0,870,1000,30)
-blue_rect=pygame.Rect(0,900,1000,10)
+blue_rect=pygame.Rect(0,900,1000,100)
 plot_rect=pygame.Rect(300,1,250,30)
 text=pygame.font.SysFont("Arial",20)
 sun_rect=pygame.Rect(900,25,100,100)
-kapli=0
+kapli=2
 
 speed_kaplya=5
 speed_cloud=5
@@ -170,4 +185,4 @@ free_type_dlya_sun=pygame.event.custom_type()
 free_type_2=pygame.event.custom_type()
 pygame.time.set_timer(free_type_2,3000,0)
 
-chastots_kaplya=3000
+period_megdy_kapel=3000
